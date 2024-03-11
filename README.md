@@ -2,3 +2,5 @@
 
 Nexascale DevOps Programme
 This is branch_b
+
+![Merge Conflict](Merge_Conflict.png)
