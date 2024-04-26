@@ -1,13 +1,5 @@
-# git_exercise
 
-Nexascale DevOps Programme
-This is branch_a
-This is branch_b
+[Git Exercise](git-exercise/README.md)
 
-# Jenkins Exercise
 
-Create a Freestyle Jenkins Project
-Create a Jenkins Pipeline
-
-![Merge Conflict](Merge_Conflict.png)
-
+[Jenkins Task](jenkins-task/README.md)
