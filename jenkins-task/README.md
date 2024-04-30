@@ -3,7 +3,7 @@
 > Create a Freestyle Jenkins Project
 > Create a Jenkins Pipeline
 
-## Step 1 - Create Virtual Machine (AWS)
+## Create Virtual Machine (AWS)
 
 - Log into your aws account with your credentials
   As a security measure, it is good practice to configure 2FA on your account to prevent unauthorized access.
@@ -12,7 +12,7 @@
 - Fill the necessary details and click on create
 - After creation, connect to your instance either locally or through the web console
 
-## Step 2 - Install Jenkins
+## Install Jenkins
 
 - Install jdk
 ```sudo apt install default-jdk-headless```
@@ -46,17 +46,24 @@ sudo apt-get install jenkins
 
 - For security, I added a password to ensure that access to my pipeline is only accessible to authorized persons.
 
-## Step 3 - Create Freestyle Project
+## SCM Integration
+
+- To integrate Jenkins to my Git, I had to create a project first, clicked on the configure option and configured Build Triggers to connect with GITScm polling.
+- I then went to Github, under my repository settings to configure webhook to my Jenkins IP address.
+```http://your-ip-address/github-webhook/```
+- Set the content type to application/json. The default event is push.
+
+## Create Freestyle Project
 
 - Click on new item, choose a name and select freestyle
 - Configure jenkins and set build trigger to push from git
-- Set webhook from github to jenkins url
+- Since I already set the webhook, once I push to the repo, it'll trigger a build
 - push to git repo to trigger build
 
 ![Jenkins Freestyle Project](images/jenkins-freestyle.png)
 ![Jenkins Freestyle Project](images/freestyle.png)
 
-## Step 4 - Create Pipeline Project
+## Create Pipeline Project
 
 - Click on new item, choose a name and select pipeline
 - Configure jenkins and set build trigger to push from git
@@ -67,6 +74,28 @@ sudo apt-get install jenkins
 - Create Dockerfile
 - Create index file
 - push changes to the repo to trigger build
+
+## Docker Image Creation
+
+- To create a Docker image using Jenkins, you must include your docker file in your repository. The dockerfile contains commands used in creating a docker image.
+- Once your dockerfile is ready, you can run ```docker image build -t <name of your dockerfile> .```
+- Since the pipeline is going to run this automatically, you don't have to run the script manually.
+```docker images``` - This woud list all built images on your server.
+
+## Docker Container Run
+
+- To run a container, you use the image alredy built or an existing one from Dockerhub.
+- Run ```docker run -itd --name nginx -p 8081:80 dockerfile```
+- itd means you want to run your container in interactive and detached mode. This allows you access to your terminal afterwards.
+- -p referes to the port you want to serve your image from.
+- --name is optional but it refers to the name of the container being run and,
+- The last option is the name of the image.
+
+## Docker Push
+
+- To push an image to DockerHub, you need to have authenticated.
+- You also need the registry url (private or public)
+- Run ```docker push <your-account>/<imagename>``` - by default, the tag would be latest.
 
 ![Homepage](images/builds.png)
 ![Homepage](images/home.png)
