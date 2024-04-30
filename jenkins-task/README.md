@@ -6,6 +6,8 @@
 ## Step 1 - Create Virtual Machine (AWS)
 
 - Log into your aws account with your credentials
+  As a security measure, it is good practice to configure 2FA on your account to prevent unauthorized access.
+
 - Search for EC2 and click on launch instance
 - Fill the necessary details and click on create
 - After creation, connect to your instance either locally or through the web console
@@ -16,6 +18,12 @@
 ```sudo apt install default-jdk-headless```
 
 - Install and Connect to Jenkins
+  It is good practice to create a user account on your virtual machine so you preserve the integrity of the root user.
+
+  ```adduser <username>```
+  - Provide your password and other optional info
+  ```usermod -aG sudo <username>``` - This command adds the new user to the sudo group
+  ```su <username>``` - switches account to the new user
 
 ``` shell
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
@@ -34,7 +42,9 @@ sudo apt-get install jenkins
 
 - Update your security group on AWS to allow access to port 8080
 - Visit the IP address on port 8080 and log in to the Jenkins Dashboard
-- Install recommended plugins
+- Install git, docker and other recommended plugins
+
+- For security, I added a password to ensure that access to my pipeline is only accessible to authorized persons.
 
 ## Step 3 - Create Freestyle Project
 
