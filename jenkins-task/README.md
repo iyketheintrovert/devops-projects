@@ -63,6 +63,8 @@ sudo apt-get install jenkins
 ![Jenkins Freestyle Project](images/jenkins-freestyle.png)
 ![Jenkins Freestyle Project](images/freestyle.png)
 
+## Configure Docker on Jenkins
+
 ## Create Pipeline Project
 
 - Click on new item, choose a name and select pipeline
