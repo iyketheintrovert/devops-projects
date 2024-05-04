@@ -65,6 +65,8 @@ sudo apt-get install jenkins
 
 ## Configure Docker on Jenkins
 
+- 
+
 ## Create Pipeline Project
 
 - Click on new item, choose a name and select pipeline
