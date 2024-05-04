@@ -14,16 +14,16 @@
 
 ## Install Jenkins
 
-- Install jdk
-```sudo apt install default-jdk-headless```
-
 - Install and Connect to Jenkins
   It is good practice to create a user account on your virtual machine so you preserve the integrity of the root user.
 
-  ```adduser <username>```
+  ```sudo adduser <username>```
   - Provide your password and other optional info
   ```usermod -aG sudo <username>``` - This command adds the new user to the sudo group
   ```su <username>``` - switches account to the new user
+
+- Install jdk
+```sudo apt install default-jdk-headless```
 
 ``` shell
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
