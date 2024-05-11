@@ -30,6 +30,13 @@ pipeline {
                 }
             }
         }
+        stage('Tag Image') {
+            steps {
+              script {
+                  sh 'docker tag dockerfile sageiyke/dockerfile:latest'
+              }
+            }
+        }
         stage('Push to DockerHub') {
             steps {
               script {
