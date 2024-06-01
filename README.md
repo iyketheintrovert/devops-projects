@@ -6,3 +6,5 @@
 [Jenkins Task](jenkins-task/README.md)
 
 [Terraform Task](terraform-exercise/README.md)
+
+[AWS Task](aws-task/README.md)
